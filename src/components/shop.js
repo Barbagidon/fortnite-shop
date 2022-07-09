@@ -25,6 +25,7 @@ function Shop() {
   };
 
   const addToCart = (id) => {
+    console.log(111);
     const elementInArr = cart.findIndex((item) => item.good.id === id);
     const chooseItem = goods.filter((item) => item.id === id);
     const [good] = chooseItem;

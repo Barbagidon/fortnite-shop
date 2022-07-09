@@ -90,6 +90,7 @@ nav {
 #toast-container {
   top: 1rem !important;
   animation: fade-in 250ms ease-in-out;
+  height: 50px;
 }
 
 

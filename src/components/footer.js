@@ -4,7 +4,12 @@ function Footer() {
       <div className="footer-copyright">
         <div className="container">
           @{new Date().getFullYear()} Copyright text
-          <a className="grey-text text-lighten-4 right" href="#">
+          <a
+            href="https://github.com/Barbagidon/fortnite-shop"
+            target="_blank"
+            rel="noreferrer"
+            className="grey-text text-lighten-4 right"
+          >
             Repo
           </a>
         </div>
