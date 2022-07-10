@@ -21,12 +21,14 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           cart: [...cart, objForCart],
+          alertName: good.name,
         };
       } else {
         const addQuantity = cart.map((item) => {
           if (item.good.id === payload) {
             return {
               ...item,
+              alertName: good.name,
               quantity: item.quantity + 1,
             };
           } else {
@@ -36,6 +38,7 @@ function reducer(state, { type, payload }) {
 
         return {
           ...state,
+          alertName: good.name,
           cart: addQuantity,
         };
       }

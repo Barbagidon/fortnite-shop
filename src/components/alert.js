@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import { useContext } from "react";
-import { ShopContext } from "./shop";
 import { MainContext } from "../context/context";
 
 const Alert = () => {
-
-  const { closeAlert, alertName,} = useContext(MainContext);
-
+  const { closeAlert, alertName } = useContext(MainContext);
 
   useEffect(() => {
     const timerId = setTimeout(closeAlert, 1500);
