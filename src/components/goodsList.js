@@ -1,9 +1,6 @@
 import GoodsItem from "./goodsItem";
-import { useContext } from "react";
-import { ShopContext } from "./shop";
 
 const GoodsList = (props) => {
-  const value = useContext(ShopContext);
   const { goods = [] } = props;
 
   if (!goods.length) {

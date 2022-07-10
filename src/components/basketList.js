@@ -1,9 +1,12 @@
 import BasketItem from "./basketItem";
 import { useContext } from "react";
 import { ShopContext } from "./shop";
+import { MainContext } from "../context/context";
 
 const BasketList = () => {
-  const { cart, setProcess } = useContext(ShopContext);
+  const { setProcess } = useContext(ShopContext);
+
+  const { cart } = useContext(MainContext);
 
   const getTotalCost = () => {
     let counter = 0;
@@ -14,21 +17,27 @@ const BasketList = () => {
     return counter;
   };
 
+  console.log(cart);
+
   return (
     <ul className="collection basket-list">
       <li className="collection-item active">Корзина</li>
 
-      {cart.map((item) => {
-        const { good, quantity } = item;
-        return (
-          <BasketItem
-            {...good}
-            key={good.id}
-            id={good.id}
-            quantity={quantity}
-          />
-        );
-      })}
+      {cart.length > 0 ? (
+        cart.map((item) => {
+          const { good, quantity } = item;
+          return (
+            <BasketItem
+              {...good}
+              key={good.id}
+              id={good.id}
+              quantity={quantity}
+            />
+          );
+        })
+      ) : (
+        <li className="collection-item">Корзина пуста:(</li>
+      )}
 
       <li className="collection-item active">
         Общая стоимость: {getTotalCost()}

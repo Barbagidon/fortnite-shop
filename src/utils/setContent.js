@@ -11,14 +11,13 @@ const setContent = (process, Component, data) => {
         </>
       );
 
-      return;
     case "loading":
       return <Preloader />;
     case "confirmed":
       return <Component goods={data} />;
 
     default:
-      return <h2>Error!</h2>;
+      return data;
   }
 };
 

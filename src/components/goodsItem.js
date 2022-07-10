@@ -1,9 +1,9 @@
-import { ShopContext } from "./shop";
 import { useContext } from "react";
+import { MainContext } from "../context/context";
 
 const GoodsItem = (props) => {
   const { id, name, description, full_background, price } = props;
-  const { addToCart } = useContext(ShopContext);
+  const { addToBasket } = useContext(MainContext);
 
   return (
     <div
@@ -21,7 +21,7 @@ const GoodsItem = (props) => {
         <p>{description}</p>
       </div>
       <div className="card-action">
-        <button className="btn" onClick={() => addToCart(id)}>
+        <button className="btn" onClick={() => addToBasket(id)}>
           Купить
         </button>
         <span className="right" style={{ fontSize: "20px" }}>

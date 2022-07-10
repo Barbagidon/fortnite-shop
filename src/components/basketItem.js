@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react";
-import { ShopContext } from "./shop";
+import { MainContext } from "../context/context";
 
 const BasketItem = (props) => {
   const { name, price, id, quantity } = props;
-
-  const { removeItemFromCart, removeOneItem, addOneItem, addToCart } =
-    useContext(ShopContext);
-
+  const { removeItemFromCart, removeOneItem, addToBasket } =
+    useContext(MainContext);
+  if (!name) {
+    console.log("jopa");
+  }
   useEffect(() => {
     if (quantity < 1) {
       removeItemFromCart(id);
@@ -27,7 +28,7 @@ const BasketItem = (props) => {
         <i
           className="material-icons 
         "
-          onClick={() => addToCart(id)}
+          onClick={() => addToBasket(id)}
         >
           exposure_plus_1
         </i>
